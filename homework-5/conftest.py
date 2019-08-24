@@ -8,7 +8,7 @@ from selenium.webdriver.firefox.options import Options as Firefox_options
 def pytest_addoption(parser):
     """Addoption fixture: browser type, url, headless option"""
     parser.addoption(
-        "--browser_type", action="store", default="edge", help="browser option"
+        "--browser_type", action="store", default="chrome", help="browser option"
     )
     parser.addoption(
         "--url", action="store", default="http://127.0.0.1/opencart", help="url option"
