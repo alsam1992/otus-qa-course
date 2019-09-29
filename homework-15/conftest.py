@@ -32,7 +32,7 @@ def apache2_logrow(s):
 def pytest_addoption(parser):
     """Addoption fixture: folder, file name, """
     parser.addoption(
-        "--folder", action="store", default=r"/home/nikolay/otus-qa-course/homework-15", help="folder option"
+        "--folder", action="store", default=r"./", help="folder option"
     )
     parser.addoption(
         "--file_name", action="store", default="access.log", help="file name option"
