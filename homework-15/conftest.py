@@ -172,7 +172,6 @@ def save_to_json(request_count):
     """Fixture to save result yo log"""
     request_statistic_list, ip_list, long_time_request_list, server_error_list, client_error_list = request_count
     all_statistic_list = {}
-    all_statistic_list["Requests statistic"] = request_statistic_list, server_error_list,
     all_statistic_list["Top 10 IP"] = ip_list
     all_statistic_list["Top 10 long requests"] = long_time_request_list
     all_statistic_list["Server error"] = server_error_list
