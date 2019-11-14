@@ -1,14 +1,19 @@
 language: python
-python:
-  - '3.6'
 
 branches:
   only:
     - master
     - homework-ci
 
-install:
-  - pip install -r requirements.txt
+services:
+  - docker
+
+before_install:
+  - docker pull selenium/standalone-chrome
+  - docker run --rm -it selenium/standalone-chrome /bin/sh -c "sudo apt-get update -y; sudo apt-get install python3-pip -y; python3 -mpip install -r requirements.txt; sudo Xvfb :99 -ac &; sudo python3 -mpytest ./homework-ci/test_todo_mvc.py"
+  - docker ps -a
+  - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+
 
 script:
-  - python -mpytest ./homework-ci/test_todo_mvc.py
+  - ls -la
