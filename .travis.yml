@@ -1,0 +1,11 @@
+language: python
+python:
+  - '3.6'
+
+branches:
+  only:
+    - master
+    - homework-ci
+
+script:
+  - python3 -mpip install -r requirements.txt
