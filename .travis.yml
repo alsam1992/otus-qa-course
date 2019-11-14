@@ -7,5 +7,8 @@ branches:
     - master
     - homework-ci
 
+install:
+  - pip install -r requirements.txt
+
 script:
-  - python3 -mpip install -r requirements.txt
+  - python -mpytest ./homework-ci/test_todo_mvc.py
