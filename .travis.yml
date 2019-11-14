@@ -1,19 +1,21 @@
 language: python
+python:
+  - '3.6'
 
 branches:
   only:
     - master
     - homework-ci
 
-services:
-  - docker
-
+dist: trusty
+addons:
+  chrome: stable
 before_install:
-  - docker pull selenium/standalone-chrome
-  - docker run --rm -it selenium/standalone-chrome /bin/sh -c "sudo apt-get update -y; sudo apt-get install python3-pip -y; python3 -mpip install -r requirements.txt; sudo Xvfb :99 -ac &; sudo python3 -mpytest ./homework-ci/test_todo_mvc.py"
-  - docker ps -a
-  - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+  - # start your web application and listen on `localhost`
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost
 
+install:
+  - pip install -r requirements.txt
 
 script:
-  - ls -la
+  - python3 -mpytest ./smoke/todo_mvc_test.py
