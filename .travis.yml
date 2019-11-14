@@ -10,12 +10,8 @@ services:
 
 before_install:
   - docker pull selenium/standalone-chrome
-  - docker run -d selenium/standalone-chrome bash
+  - docker run --rm -it selenium/standalone-chrome bash -c "./homework-ci/build-on-server.sh"
 
 script:
-  - sudo apt-get update -y
-  - sudo apt-get install python3-pip -y
-  - python3 -mpip install -r requirements.txt
-  - sudo Xvfb :99 -ac &
-  - sudo python3 -mpytest ./homework-ci/test_todo_mvc.py
+  - echo "OK"
 
