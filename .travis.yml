@@ -10,7 +10,7 @@ services:
 
 before_install:
   - docker pull selenium/standalone-chrome
-  - docker run --rm -it -v "$(pwd)/:/home/:ro" selenium/standalone-chrome bash -c "cd /home/homework-ci && chmod +x build-on-server.sh && bash build-on-server.sh"
+  - docker run --rm -it -v "$(pwd)/:/home/:rw" selenium/standalone-chrome bash -c "cd /home/homework-ci && chmod +x build-on-server.sh && bash build-on-server.sh"
 
 script:
   - echo "OK"
