@@ -4,7 +4,7 @@ certifi
 cffi
 paramiko
 pep8
-Pygments==2.3.1
+Pygments==2.7.4
 pylint==2.3.1
 pyparsing
 pytest
